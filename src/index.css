@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-text;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-cta text-white px-6 py-3 rounded-lg font-semibold hover:bg-cta/90 transition-colors focus:outline-none focus:ring-2 focus:ring-cta focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-accent-dark px-6 py-3 rounded-lg font-semibold hover:bg-secondary/80 transition-colors focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-lg p-6 border border-secondary/20;
+  }
+  
+  .flip-card {
+    @apply relative w-full h-64 perspective-1000;
+  }
+  
+  .flip-card-inner {
+    @apply relative w-full h-full text-center transition-transform duration-700 transform-style-preserve-3d;
+  }
+  
+  .flip-card:hover .flip-card-inner,
+  .flip-card:focus-within .flip-card-inner {
+    @apply rotate-y-180;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    @apply absolute w-full h-full backface-hidden rounded-2xl;
+  }
+  
+  .flip-card-back {
+    @apply rotate-y-180;
+  }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}

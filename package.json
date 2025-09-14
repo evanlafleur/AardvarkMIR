@@ -1,0 +1,48 @@
+{
+  "name": "aardvark-instrument-repair",
+  "version": "1.0.0",
+  "description": "Professional instrument repair services website",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "server:dev": "nodemon --exec ts-node server/index.ts",
+    "client:dev": "vite",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build",
+    "build:server": "tsc server/*.ts --outDir dist --target es2020 --module commonjs --moduleResolution node --esModuleInterop",
+    "start": "node dist/index.js",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "instrument",
+    "repair",
+    "music",
+    "saxophone",
+    "trumpet"
+  ],
+  "author": "Aardvark Instrument Repair",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "sharp": "^0.32.6"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.8.0",
+    "@types/react": "^18.2.22",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.1.0",
+    "autoprefixer": "^10.4.15",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.1",
+    "postcss": "^8.4.29",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9"
+  }
+}
